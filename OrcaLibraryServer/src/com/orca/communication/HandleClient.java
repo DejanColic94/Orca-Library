@@ -18,8 +18,8 @@ import java.util.logging.Logger;
  * @author DCX
  */
 public class HandleClient extends Thread{
-     Socket socket;
-    boolean end = false;
+    private Socket socket;
+    private boolean end = false;
 
     public HandleClient(Socket socket) {
         this.socket = socket;
