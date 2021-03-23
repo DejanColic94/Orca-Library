@@ -5,7 +5,7 @@
  */
 package com.orca.main;
 
-import com.orca.view.FrmClient;
+import com.orca.view.FrmLogIn;
 import javax.swing.JFrame;
 
 /**
@@ -14,7 +14,7 @@ import javax.swing.JFrame;
  */
 public class Main {
     public static void main(String[] args) {
-        JFrame client = new FrmClient();
+        JFrame client = new FrmLogIn();
         client.setVisible(true);
     }
 }
