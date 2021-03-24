@@ -5,6 +5,8 @@
  */
 package com.orca.view;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author DCX
@@ -16,6 +18,7 @@ public class FrmMain extends javax.swing.JFrame {
      */
     public FrmMain() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -60,6 +63,11 @@ public class FrmMain extends javax.swing.JFrame {
         menuKnjige.add(miKnjigePregled);
 
         miKnjigeNovo.setText("Novo");
+        miKnjigeNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miKnjigeNovoActionPerformed(evt);
+            }
+        });
         menuKnjige.add(miKnjigeNovo);
 
         jMenuBar1.add(menuKnjige);
@@ -100,21 +108,21 @@ public class FrmMain extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnNoviCitat))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(369, 369, 369)
-                        .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(380, 380, 380)
+                        .addComponent(lblIMG))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addComponent(lblIMG)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(487, 487, 487)
+                        .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap(175, Short.MAX_VALUE)
                 .addComponent(lblIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(47, 47, 47)
                 .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(155, 155, 155)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,6 +133,11 @@ public class FrmMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void miKnjigeNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miKnjigeNovoActionPerformed
+       JDialog ubaci = new FrmUnosKnjige(this, true);
+       ubaci.setVisible(true);
+    }//GEN-LAST:event_miKnjigeNovoActionPerformed
 
     /**
      * @param args the command line arguments

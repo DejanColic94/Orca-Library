@@ -6,6 +6,7 @@
 package com.orca.main;
 
 import com.orca.view.FrmLogIn;
+import com.orca.view.FrmMain;
 import javax.swing.JFrame;
 
 /**
