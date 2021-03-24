@@ -16,6 +16,7 @@ public class FrmPregledKnjiga extends javax.swing.JDialog {
     public FrmPregledKnjiga(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /** This method is called from within the constructor to

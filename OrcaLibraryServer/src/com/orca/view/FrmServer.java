@@ -18,6 +18,7 @@ public class FrmServer extends javax.swing.JFrame {
      */
     public FrmServer() {
         initComponents();
+        setLocationRelativeTo(null);
         StartServer ss = new StartServer();
         ss.start();
     }

@@ -17,6 +17,7 @@ public class FrmPregledClanova extends javax.swing.JDialog {
     public FrmPregledClanova(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

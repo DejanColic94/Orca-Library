@@ -31,8 +31,8 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblCitat = new javax.swing.JLabel();
         btnNoviCitat = new javax.swing.JButton();
-        btnLogOut = new javax.swing.JButton();
         lblIMG = new javax.swing.JLabel();
+        btnLogOut = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuKnjige = new javax.swing.JMenu();
         miKnjigePregled = new javax.swing.JMenuItem();
@@ -53,13 +53,19 @@ public class FrmMain extends javax.swing.JFrame {
 
         btnNoviCitat.setText("Novi citat");
 
-        btnLogOut.setText("Izloguj se");
-
+        lblIMG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\DCX\\Desktop\\Projekat Orca\\orcaLogo.PNG")); // NOI18N
+
+        btnLogOut.setText("Izloguj se");
 
         menuKnjige.setText("Knjige");
 
         miKnjigePregled.setText("Pregled");
+        miKnjigePregled.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miKnjigePregledActionPerformed(evt);
+            }
+        });
         menuKnjige.add(miKnjigePregled);
 
         miKnjigeNovo.setText("Novo");
@@ -75,9 +81,19 @@ public class FrmMain extends javax.swing.JFrame {
         menuClanovi.setText("Clanovi");
 
         miClanoviPregled.setText("Pregled");
+        miClanoviPregled.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miClanoviPregledActionPerformed(evt);
+            }
+        });
         menuClanovi.add(miClanoviPregled);
 
         miClanoviNovo.setText("Novo");
+        miClanoviNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miClanoviNovoActionPerformed(evt);
+            }
+        });
         menuClanovi.add(miClanoviNovo);
 
         jMenuBar1.add(menuClanovi);
@@ -85,9 +101,19 @@ public class FrmMain extends javax.swing.JFrame {
         menuZaduzenje.setText("Zaduzenja");
 
         miZaduzenjaPregled.setText("Pregled");
+        miZaduzenjaPregled.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miZaduzenjaPregledActionPerformed(evt);
+            }
+        });
         menuZaduzenje.add(miZaduzenjaPregled);
 
         miZaduzenjaNovo.setText("Novo");
+        miZaduzenjaNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miZaduzenjaNovoActionPerformed(evt);
+            }
+        });
         menuZaduzenje.add(miZaduzenjaNovo);
 
         jMenuBar1.add(menuZaduzenje);
@@ -99,35 +125,34 @@ public class FrmMain extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIMG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCitat, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnNoviCitat))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(380, 380, 380)
-                        .addComponent(lblIMG))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(487, 487, 487)
-                        .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(260, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(btnNoviCitat))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCitat, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addComponent(btnLogOut)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(175, Short.MAX_VALUE)
-                .addComponent(lblIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCitat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnNoviCitat, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(39, 39, 39)
+                .addComponent(lblIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(btnNoviCitat)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -138,6 +163,31 @@ public class FrmMain extends javax.swing.JFrame {
        JDialog ubaci = new FrmUnosKnjige(this, true);
        ubaci.setVisible(true);
     }//GEN-LAST:event_miKnjigeNovoActionPerformed
+
+    private void miKnjigePregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miKnjigePregledActionPerformed
+        JDialog pregled = new FrmPregledKnjiga(this, true);
+       pregled.setVisible(true);
+    }//GEN-LAST:event_miKnjigePregledActionPerformed
+
+    private void miClanoviPregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miClanoviPregledActionPerformed
+        JDialog pregledClan = new FrmPregledClanova(this, true);
+       pregledClan.setVisible(true);
+    }//GEN-LAST:event_miClanoviPregledActionPerformed
+
+    private void miClanoviNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miClanoviNovoActionPerformed
+       JDialog ubaciClan = new FrmUnosClana(this, true);
+       ubaciClan.setVisible(true);
+    }//GEN-LAST:event_miClanoviNovoActionPerformed
+
+    private void miZaduzenjaPregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miZaduzenjaPregledActionPerformed
+       JDialog pregledZaduzenja = new FrmPregledZaduzenja(this, true);
+       pregledZaduzenja.setVisible(true);
+    }//GEN-LAST:event_miZaduzenjaPregledActionPerformed
+
+    private void miZaduzenjaNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miZaduzenjaNovoActionPerformed
+       JDialog ubaciZaduzenje = new FrmUnosZaduzenja(this, true);
+       ubaciZaduzenje.setVisible(true);
+    }//GEN-LAST:event_miZaduzenjaNovoActionPerformed
 
     /**
      * @param args the command line arguments

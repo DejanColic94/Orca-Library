@@ -17,6 +17,7 @@ public class FrmConfig extends javax.swing.JDialog {
     public FrmConfig(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -17,6 +17,7 @@ public class FrmUnosClana extends javax.swing.JDialog {
     public FrmUnosClana(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

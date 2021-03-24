@@ -15,7 +15,7 @@ import javax.swing.JFrame;
  */
 public class Main {
     public static void main(String[] args) {
-        JFrame client = new FrmLogIn();
+        JFrame client = new FrmMain();
         client.setVisible(true);
     }
 }

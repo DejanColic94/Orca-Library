@@ -17,6 +17,7 @@ public class FrmUnosKnjige extends javax.swing.JDialog {
     public FrmUnosKnjige(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
