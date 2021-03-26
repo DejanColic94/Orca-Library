@@ -49,12 +49,7 @@ public class Primerak implements Serializable{
         this.knjiga = knjiga;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + this.primerakID;
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {

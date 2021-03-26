@@ -39,12 +39,7 @@ public class Izdavac implements Serializable{
         this.izdavacID = izdavacID;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.izdavacID;
-        return hash;
-    }
+    
 
     @Override
     public boolean equals(Object obj) {

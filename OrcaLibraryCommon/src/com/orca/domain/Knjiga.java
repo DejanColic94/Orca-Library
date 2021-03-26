@@ -52,12 +52,7 @@ public class Knjiga implements Serializable{
     }
     
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + this.knjigaID;
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {

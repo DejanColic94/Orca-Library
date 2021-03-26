@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Pise implements Serializable{
     private Autor autor;
     private Knjiga knjiga;
-    private int godina;
+   
 
     public Pise() {
     }
@@ -22,16 +22,12 @@ public class Pise implements Serializable{
     public Pise(Autor autor, Knjiga knjiga, int godina) {
         this.autor = autor;
         this.knjiga = knjiga;
-        this.godina = godina;
+       
     }
 
-    public int getGodina() {
-        return godina;
-    }
+  
 
-    public void setGodina(int godina) {
-        this.godina = godina;
-    }
+   
 
     public Autor getAutor() {
         return autor;

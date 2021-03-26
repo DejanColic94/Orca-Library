@@ -90,12 +90,7 @@ public class Zaduzenje implements Serializable{
         this.radnikZaduzio = radnikZaduzio;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + this.zaduzenjeID;
-        return hash;
-    }
+  
 
     @Override
     public boolean equals(Object obj) {

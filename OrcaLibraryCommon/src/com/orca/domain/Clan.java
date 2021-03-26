@@ -18,10 +18,10 @@ public class Clan implements Serializable{
     private String telefon;
     private String email;
     private Primerak primerak;
-    private ArrayList<Zaduzenje> listaZaduzenja;
+    
 
     public Clan() {
-        listaZaduzenja = new ArrayList<>();
+      
     }
 
     public Clan(int clanID, String imePrezime, String telefon, String email, Primerak primerak) {
@@ -30,7 +30,7 @@ public class Clan implements Serializable{
         this.telefon = telefon;
         this.email = email;
         this.primerak = primerak;
-        listaZaduzenja = new ArrayList<>();
+        
     }
 
     public Primerak getPrimerak() {
@@ -73,22 +73,14 @@ public class Clan implements Serializable{
         this.email = email;
     }
 
-    public ArrayList<Zaduzenje> getListaZaduzenja() {
-        return listaZaduzenja;
-    }
+   
+    
 
-    public void setListaZaduzenja(ArrayList<Zaduzenje> listaZaduzenja) {
-        this.listaZaduzenja = listaZaduzenja;
-    }
+    
     
     
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 19 * hash + this.clanID;
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {

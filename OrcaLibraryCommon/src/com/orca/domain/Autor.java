@@ -39,12 +39,7 @@ public class Autor implements Serializable{
         this.autorID = autorID;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + this.autorID;
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {

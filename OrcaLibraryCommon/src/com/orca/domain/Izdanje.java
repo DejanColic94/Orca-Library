@@ -50,13 +50,7 @@ public class Izdanje implements Serializable{
         this.brojIzdanja = brojIzdanja;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.knjiga);
-        hash = 79 * hash + this.brojIzdanja;
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {

@@ -60,13 +60,7 @@ public class Radnik implements Serializable{
         this.username = username;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.username);
-        hash = 23 * hash + Objects.hashCode(this.password);
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {

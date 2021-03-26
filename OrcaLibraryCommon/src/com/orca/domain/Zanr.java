@@ -39,12 +39,7 @@ public class Zanr implements Serializable{
         this.zanrID = zanrID;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.zanrID;
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {
