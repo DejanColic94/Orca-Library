@@ -5,6 +5,8 @@
  */
 package com.orca.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author DCX
@@ -101,4 +103,8 @@ public class FrmLogIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    public void btnUlogujSeAddListener(ActionListener actionListener) {
+        btnLogIn.addActionListener(actionListener);
+    }
 }

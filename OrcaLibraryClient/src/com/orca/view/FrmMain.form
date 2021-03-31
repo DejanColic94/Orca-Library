@@ -13,17 +13,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pregled"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miKnjigePregledActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miKnjigeNovo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Novo"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miKnjigeNovoActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -36,17 +30,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pregled"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miClanoviPregledActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miClanoviNovo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Novo"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miClanoviNovoActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -59,17 +47,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pregled"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miZaduzenjaPregledActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miZaduzenjaNovo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Novo"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miZaduzenjaNovoActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

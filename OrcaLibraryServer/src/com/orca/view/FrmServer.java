@@ -6,6 +6,7 @@
 package com.orca.view;
 
 import com.orca.communication.StartServer;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -18,9 +19,7 @@ public class FrmServer extends javax.swing.JFrame {
      */
     public FrmServer() {
         initComponents();
-        setLocationRelativeTo(null);
-        StartServer ss = new StartServer();
-        ss.start();
+        
     }
 
     /**
@@ -138,4 +137,16 @@ public class FrmServer extends javax.swing.JFrame {
     private javax.swing.JMenu menuConfig;
     private javax.swing.JTable tblKorisnici;
     // End of variables declaration//GEN-END:variables
+
+    public void pokreniAddActionListener(ActionListener actionListener) {
+        btnPokreni.addActionListener(actionListener);
+    }
+
+    public void zaustaviAddActionListener(ActionListener actionListener) {
+       btnZaustavi.addActionListener(actionListener);
+    }
+
+    public void configAddActionListener(ActionListener actionListener) {
+        menuConfig.addActionListener(actionListener);
+    }
 }

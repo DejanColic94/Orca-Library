@@ -6,6 +6,7 @@
 package com.orca.main;
 
 import com.orca.view.FrmServer;
+import com.orca.view.coordinator.Coordinator;
 import javax.swing.JFrame;
 
 /**
@@ -14,8 +15,7 @@ import javax.swing.JFrame;
  */
 public class Main {
     public static void main(String[] args) {
-        JFrame server = new FrmServer();
-        server.setVisible(true);
+        Coordinator.getInstance().openServer();
         
     }
 }

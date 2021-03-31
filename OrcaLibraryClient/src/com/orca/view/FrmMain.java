@@ -5,6 +5,7 @@
  */
 package com.orca.view;
 
+import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 
 /**
@@ -61,19 +62,9 @@ public class FrmMain extends javax.swing.JFrame {
         menuKnjige.setText("Knjige");
 
         miKnjigePregled.setText("Pregled");
-        miKnjigePregled.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miKnjigePregledActionPerformed(evt);
-            }
-        });
         menuKnjige.add(miKnjigePregled);
 
         miKnjigeNovo.setText("Novo");
-        miKnjigeNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miKnjigeNovoActionPerformed(evt);
-            }
-        });
         menuKnjige.add(miKnjigeNovo);
 
         jMenuBar1.add(menuKnjige);
@@ -81,19 +72,9 @@ public class FrmMain extends javax.swing.JFrame {
         menuClanovi.setText("Clanovi");
 
         miClanoviPregled.setText("Pregled");
-        miClanoviPregled.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miClanoviPregledActionPerformed(evt);
-            }
-        });
         menuClanovi.add(miClanoviPregled);
 
         miClanoviNovo.setText("Novo");
-        miClanoviNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miClanoviNovoActionPerformed(evt);
-            }
-        });
         menuClanovi.add(miClanoviNovo);
 
         jMenuBar1.add(menuClanovi);
@@ -101,19 +82,9 @@ public class FrmMain extends javax.swing.JFrame {
         menuZaduzenje.setText("Zaduzenja");
 
         miZaduzenjaPregled.setText("Pregled");
-        miZaduzenjaPregled.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miZaduzenjaPregledActionPerformed(evt);
-            }
-        });
         menuZaduzenje.add(miZaduzenjaPregled);
 
         miZaduzenjaNovo.setText("Novo");
-        miZaduzenjaNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miZaduzenjaNovoActionPerformed(evt);
-            }
-        });
         menuZaduzenje.add(miZaduzenjaNovo);
 
         jMenuBar1.add(menuZaduzenje);
@@ -159,70 +130,7 @@ public class FrmMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void miKnjigeNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miKnjigeNovoActionPerformed
-       JDialog ubaci = new FrmUnosKnjige(this, true);
-       ubaci.setVisible(true);
-    }//GEN-LAST:event_miKnjigeNovoActionPerformed
-
-    private void miKnjigePregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miKnjigePregledActionPerformed
-        JDialog pregled = new FrmPregledKnjiga(this, true);
-       pregled.setVisible(true);
-    }//GEN-LAST:event_miKnjigePregledActionPerformed
-
-    private void miClanoviPregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miClanoviPregledActionPerformed
-        JDialog pregledClan = new FrmPregledClanova(this, true);
-       pregledClan.setVisible(true);
-    }//GEN-LAST:event_miClanoviPregledActionPerformed
-
-    private void miClanoviNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miClanoviNovoActionPerformed
-       JDialog ubaciClan = new FrmUnosClana(this, true);
-       ubaciClan.setVisible(true);
-    }//GEN-LAST:event_miClanoviNovoActionPerformed
-
-    private void miZaduzenjaPregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miZaduzenjaPregledActionPerformed
-       JDialog pregledZaduzenja = new FrmPregledZaduzenja(this, true);
-       pregledZaduzenja.setVisible(true);
-    }//GEN-LAST:event_miZaduzenjaPregledActionPerformed
-
-    private void miZaduzenjaNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miZaduzenjaNovoActionPerformed
-       JDialog ubaciZaduzenje = new FrmUnosZaduzenja(this, true);
-       ubaciZaduzenje.setVisible(true);
-    }//GEN-LAST:event_miZaduzenjaNovoActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmMain().setVisible(true);
-            }
-        });
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
@@ -241,4 +149,36 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem miZaduzenjaNovo;
     private javax.swing.JMenuItem miZaduzenjaPregled;
     // End of variables declaration//GEN-END:variables
+
+    public void btnNoviCitatAddActionListener(ActionListener actionListener) {
+        btnNoviCitat.addActionListener(actionListener);
+    }
+
+    public void btnLogOutAddActionListener(ActionListener actionListener) {
+        btnLogOut.addActionListener(actionListener);
+    }
+
+    public void miKnjigePregledAddActionListener(ActionListener actionListener) {
+        miKnjigePregled.addActionListener(actionListener);
+    }
+
+    public void miKnjigeNovoAddActionListener(ActionListener actionListener) {
+        miKnjigeNovo.addActionListener(actionListener);
+    }
+
+    public void miClanoviPregledAddActionListener(ActionListener actionListener) {
+        miClanoviPregled.addActionListener(actionListener);
+    }
+
+    public void miClanoviNovoAddActionListener(ActionListener actionListener) {
+        miClanoviNovo.addActionListener(actionListener);
+    }
+
+    public void miZaduzenjePregledAddActionListener(ActionListener actionListener) {
+        miZaduzenjaPregled.addActionListener(actionListener);
+    }
+
+    public void miZaduzenjeNovoAddActionListener(ActionListener actionListener) {
+        miZaduzenjaNovo.addActionListener(actionListener);
+    }
 }

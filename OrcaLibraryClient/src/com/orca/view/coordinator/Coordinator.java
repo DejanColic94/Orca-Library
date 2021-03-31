@@ -5,6 +5,8 @@
  */
 package com.orca.view.coordinator;
 
+import com.orca.view.FrmLogIn;
+import com.orca.view.controller.FrmLogInController;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,9 +17,14 @@ import java.util.Map;
 public class Coordinator {
     private static Coordinator instance;
     private final Map<String,Object> params;
-
+    
+    // references to form controllers
+    private FrmLogInController logInController;
+    
     private Coordinator() {
+        logInController = new FrmLogInController(new FrmLogIn());
         params = new HashMap<>();
+        
     }
 
     public static Coordinator getInstance() {
@@ -25,5 +32,15 @@ public class Coordinator {
             instance = new Coordinator();
         return instance;
     }
+
+    public void logIn() {
+       logInController.logIn();
+    }
+
+    public void openLogIn() {
+        logInController.openForm();
+    }
+    
+    
     
 }

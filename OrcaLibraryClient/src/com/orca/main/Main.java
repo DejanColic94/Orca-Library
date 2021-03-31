@@ -7,6 +7,7 @@ package com.orca.main;
 
 import com.orca.view.FrmLogIn;
 import com.orca.view.FrmMain;
+import com.orca.view.coordinator.Coordinator;
 import javax.swing.JFrame;
 
 /**
@@ -15,7 +16,6 @@ import javax.swing.JFrame;
  */
 public class Main {
     public static void main(String[] args) {
-        JFrame client = new FrmMain();
-        client.setVisible(true);
+        Coordinator.getInstance().openLogIn();
     }
 }
