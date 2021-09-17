@@ -5,10 +5,25 @@
  */
 package system_operations;
 
+import com.orca.persistence.DataBaseBroker;
+
 /**
  *
  * @author DCX
  */
 public abstract class GeneralizedSO {
     
+    public final void executeOperation() throws Exception {
+        try {
+            DataBaseBroker.getInstance().connect();
+            executeSpecificOperation();
+            DataBaseBroker.getInstance().commit();
+            DataBaseBroker.getInstance().disconnect();
+        } catch (Exception e) {
+            DataBaseBroker.getInstance().rollback();
+            DataBaseBroker.getInstance().disconnect();
+        }
+    }
+
+    protected abstract void executeSpecificOperation() throws Exception;
 }

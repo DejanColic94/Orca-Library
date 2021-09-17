@@ -5,8 +5,14 @@
  */
 package com.orca.persistence;
 
+import com.orca.domain.GeneralizedDomainObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 
 /**
  *
@@ -47,12 +53,106 @@ public class DataBaseBroker {
         connection.close();
     }
     
-     public void commit() throws Exception {
+    public void commit() throws Exception {
         connection.commit();
     }
      
-      public void rollback() throws Exception {
+    public void rollback() throws Exception {
         connection.rollback();
+    }
+      
+    
+    // CREATE
+    public synchronized boolean saveGeneralizedObject(GeneralizedDomainObject object) throws SQLException {
+        try {
+            String query = "INSERT INTO " + object.getTableName() + "(" + object.getParamNames() + ")" + " VALUES (" + object.getParams() + ")"; 
+            System.out.println(query);
+            Statement s = connection.createStatement();
+            s.executeUpdate(query);
+           // connection.commit();
+            s.close();
+            return true;
+        } catch (SQLException e) {
+            //connection.rollback();
+            System.out.println("Error in databasebroker, in a save method for " + object.getTableName() + " table");
+            e.printStackTrace();
+            throw e;
+        }
+    }
+    
+    
+    
+    
+    
+    // READ
+    public synchronized List<GeneralizedDomainObject> getAllGeneralizedObjects(GeneralizedDomainObject object) throws SQLException {
+        try {
+            String query = "SELECT * FROM " + object.getTableName();
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            
+            List<GeneralizedDomainObject> list = object.convertToList(rs);
+            
+            s.close();
+            
+            return list;
+        } catch (SQLException e) {
+            System.out.println("Error in databasebroker, in a getALL method for " + object.getTableName() + " table");
+            e.printStackTrace();
+            throw e;
+        }
+    }
+    
+    
+    // UPDATE
+    public synchronized boolean updateGeneralizedObject(GeneralizedDomainObject object) throws SQLException {
+        try {
+            String query = "";
+            if(object.getAggPK() == null) {
+                query = "UPDATE " + object.getTableName() + " SET " + object.getUpdateQuery() + " WHERE " +object.getPKName() + "=" + object.getPKValue();
+            } else{
+                 query = "UPDATE " + object.getTableName() + " SET " + object.getUpdateQuery() + " " + object.getAggPK();
+            }
+            System.out.println(query);
+            Statement s = connection.createStatement();
+            s.executeUpdate(query);
+            //connection.commit();
+            s.close();
+            return true;
+            
+        } catch (SQLException e) {
+            //connection.rollback();
+            System.out.println("Error in databasebroker, in a update method for " + object.getTableName() + " table");
+            e.printStackTrace();
+            throw e;
+        }
+    }
+    
+      
+    
+    
+    // DELETE
+    public synchronized boolean deleteGeneralizedObject(GeneralizedDomainObject object) throws SQLException {
+        try {
+            String query = "";
+            
+            if (object.getAggPK() == null) {
+                query = "DELETE FROM " + object.getTableName() + " WHERE " +object.getPKName() + "=" + object.getPKValue();
+            } else {
+                query = "DELETE FROM " + object.getTableName() + " " + object.getAggPK();
+            }
+            System.out.println(query);
+            Statement s = connection.createStatement();
+            s.executeUpdate(query);
+            //connection.commit();
+            s.close();
+            return true;
+        } catch (SQLException e) {
+            //connection.rollback();
+            System.out.println("Error in databasebroker, in a delete method for " + object.getTableName() + " table");
+            e.printStackTrace();
+            throw e;
+        }
     }
     
 }
