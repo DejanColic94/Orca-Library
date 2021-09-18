@@ -155,4 +155,58 @@ public class DataBaseBroker {
         }
     }
     
+    // get by object id
+    public synchronized GeneralizedDomainObject getByID(GeneralizedDomainObject object, int id) throws SQLException {
+        try {
+            String query = "";
+
+        if (object.getAggPK() == null) {
+            query = "SELECT * FROM " + object.getTableName() + " WHERE " + object.getPKName() + "=" + id;
+        } else {
+            query = "SELECT * FROM " + object.getTableName() + " WHERE " + object.getAggPK();
+        }
+        Statement s = connection.createStatement();
+        ResultSet rs = s.executeQuery(query);
+        List<GeneralizedDomainObject> list = object.convertToList(rs);
+        s.close();
+        return list.get(0);
+        } catch (Exception e) {
+            System.out.println("Error in databasebroker, in a getByID method for " + object.getTableName() + " table");
+            e.printStackTrace();
+            throw e;
+        }
+        
+    }
+    
+    // save all objects in a collection
+    public synchronized boolean saveAll (List<GeneralizedDomainObject> list) {
+        try {
+            for(GeneralizedDomainObject object : list) {
+                saveGeneralizedObject(object);
+            }
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error in databasebroker, in a saveALL method");
+            e.printStackTrace();
+            
+        }
+        
+        return false;
+    }
+    
+    // delete all objects in a collection
+    public synchronized boolean deleteAll(List<GeneralizedDomainObject> list) {
+        try {
+            for(GeneralizedDomainObject object : list) {
+                deleteGeneralizedObject(object);
+            }
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error in databasebroker, in a deleteALL method");
+            e.printStackTrace();
+        }
+        
+        return false;
+    }
+    
 }
