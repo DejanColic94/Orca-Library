@@ -15,12 +15,12 @@ import system_operations.GeneralizedSO;
  *
  * @author DCX
  */
-public class SOPrijaviRadnika extends GeneralizedSO{
+public class SOLogIniRadnika extends GeneralizedSO{
     
     private GeneralizedDomainObject radnik;
     public GeneralizedDomainObject ulogovaniRadnik;
 
-    public SOPrijaviRadnika(GeneralizedDomainObject radnik) {
+    public SOLogIniRadnika(GeneralizedDomainObject radnik) {
         this.radnik = radnik;
         this.ulogovaniRadnik = null;
     }

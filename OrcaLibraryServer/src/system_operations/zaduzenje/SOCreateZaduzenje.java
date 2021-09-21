@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system_operations.clan;
+package system_operations.zaduzenje;
 
-import com.orca.domain.Clan;
 import com.orca.domain.GeneralizedDomainObject;
 import com.orca.persistence.DataBaseBroker;
 import system_operations.GeneralizedSO;
@@ -14,23 +13,24 @@ import system_operations.GeneralizedSO;
  *
  * @author DCX
  */
-public class SOKreirajClana extends GeneralizedSO{
+public class SOCreateZaduzenje extends GeneralizedSO{
     
-    private GeneralizedDomainObject clan;
+    private GeneralizedDomainObject zaduzenje;
     private boolean success = false;
 
-    public SOKreirajClana(GeneralizedDomainObject clan) {
-        this.clan = clan;
+    public SOCreateZaduzenje(GeneralizedDomainObject zaduzenje) {
+        this.zaduzenje = zaduzenje;
     }
 
     public boolean isSuccess() {
         return success;
     }
     
+    
 
     @Override
     protected void executeSpecificOperation() throws Exception {
-        success = DataBaseBroker.getInstance().saveGeneralizedObject(clan);
+       success = DataBaseBroker.getInstance().saveGeneralizedObject(zaduzenje);
     }
     
 }

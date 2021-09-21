@@ -6,28 +6,31 @@
 package system_operations.knjiga;
 
 import com.orca.domain.GeneralizedDomainObject;
-import com.orca.domain.Knjiga;
 import com.orca.persistence.DataBaseBroker;
-import java.util.List;
 import system_operations.GeneralizedSO;
 
 /**
  *
  * @author DCX
  */
-public class SONadjiKnjige extends GeneralizedSO{
+public class SOUpdateKnjigu extends GeneralizedSO{
     
-    List<GeneralizedDomainObject> knjige;
+    private GeneralizedDomainObject knjiga;
+    private boolean  success = false;
 
-    public  List<GeneralizedDomainObject> getKnjige() {
-        return knjige;
+    public SOUpdateKnjigu(GeneralizedDomainObject knjiga) {
+        this.knjiga = knjiga;
+    }
+
+    public boolean isSuccess() {
+        return success;
     }
     
     
 
     @Override
     protected void executeSpecificOperation() throws Exception {
-        knjige = DataBaseBroker.getInstance().getAllGeneralizedObjects(new Knjiga());
+        success = DataBaseBroker.getInstance().updateGeneralizedObject(knjiga);
     }
     
 }

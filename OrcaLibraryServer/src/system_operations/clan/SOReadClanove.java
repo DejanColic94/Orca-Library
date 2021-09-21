@@ -16,7 +16,7 @@ import system_operations.GeneralizedSO;
  *
  * @author DCX
  */
-public class SONadjiClanove extends GeneralizedSO{
+public class SOReadClanove extends GeneralizedSO{
     
     List<GeneralizedDomainObject> clanovi ;
 

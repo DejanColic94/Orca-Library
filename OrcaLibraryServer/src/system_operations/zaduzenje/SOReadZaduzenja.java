@@ -18,7 +18,7 @@ import system_operations.GeneralizedSO;
  *
  * @author DCX
  */
-public class SONadjiZaduzenja extends GeneralizedSO{
+public class SOReadZaduzenja extends GeneralizedSO{
     
     List<GeneralizedDomainObject> zaduzenja;
 
