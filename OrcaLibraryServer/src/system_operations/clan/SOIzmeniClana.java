@@ -5,6 +5,8 @@
  */
 package system_operations.clan;
 
+import com.orca.domain.GeneralizedDomainObject;
+import com.orca.persistence.DataBaseBroker;
 import system_operations.GeneralizedSO;
 
 /**
@@ -12,5 +14,23 @@ import system_operations.GeneralizedSO;
  * @author DCX
  */
 public class SOIzmeniClana extends GeneralizedSO{
+    
+    private GeneralizedDomainObject clan;
+    private boolean success = false;
+
+    public SOIzmeniClana(GeneralizedDomainObject clan) {
+        this.clan = clan;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+    
+    
+
+    @Override
+    protected void executeSpecificOperation() throws Exception {
+        success = DataBaseBroker.getInstance().updateGeneralizedObject(clan);
+    }
     
 }

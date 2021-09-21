@@ -5,6 +5,8 @@
  */
 package system_operations.zaduzenje;
 
+import com.orca.domain.GeneralizedDomainObject;
+import com.orca.persistence.DataBaseBroker;
 import system_operations.GeneralizedSO;
 
 /**
@@ -12,5 +14,23 @@ import system_operations.GeneralizedSO;
  * @author DCX
  */
 public class SOKreirajZaduzenje extends GeneralizedSO{
+    
+    private GeneralizedDomainObject zaduzenje;
+    private boolean success = false;
+
+    public SOKreirajZaduzenje(GeneralizedDomainObject zaduzenje) {
+        this.zaduzenje = zaduzenje;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+    
+    
+
+    @Override
+    protected void executeSpecificOperation() throws Exception {
+       success = DataBaseBroker.getInstance().saveGeneralizedObject(zaduzenje);
+    }
     
 }
