@@ -8,8 +8,12 @@ package com.orca.communication;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 
 
@@ -18,21 +22,74 @@ import java.util.logging.Logger;
  * @author DCX
  */
 public class StartServer extends Thread{
+    
+    private ServerSocket serverSocket;
+    private static List<HandleClient> clients = new ArrayList<>();
+    private boolean flag = true;
 
-   @Override
-    public void run() {
+    public StartServer(int port) {
         try {
-            ServerSocket serverSocket = new ServerSocket(9000);
-            System.out.println("Server is up and running");
-            while (true) {
-                Socket socket = serverSocket.accept();
-                System.out.println("Client connected!");
-                HandleClient hc = new HandleClient(socket);
-                hc.start();
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(StartServer.class.getName()).log(Level.SEVERE, null, ex);
+            serverSocket = new ServerSocket(port);
+            System.out.println("Server is up and running...");
+        } catch (Exception e) {
+            System.out.println("Server cannot be started!");
+            e.printStackTrace();
         }
-    } 
-}
+    }
 
+    @Override
+    public void run() {
+        while(flag) {
+            try {
+                
+                Socket clientSocket = serverSocket.accept();
+                HandleClient clientThread = new HandleClient(clientSocket);
+                clientThread.start();
+                clients.add(clientThread);
+                int counter = clients.size();
+                System.out.println("Client #"+counter+" has connected!");
+                
+            } catch (SocketException se) {
+                System.out.println("Server is not up");
+                break;
+                
+            } catch (IOException ex) {
+                
+                System.out.println("Client is not connected!");
+            }
+        }
+    }
+    
+    public void stopServer() {
+        for(HandleClient c : clients) {
+            try {
+                c.getSocket().close();
+                System.out.println("Client disconnected");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+        try {
+            serverSocket.close();
+            flag = false;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void disconnectClient(HandleClient hc) {
+        try {
+             hc.getSocket().close();
+             System.out.println("Client disconnected");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+    }
+    
+    
+    
+    
+}

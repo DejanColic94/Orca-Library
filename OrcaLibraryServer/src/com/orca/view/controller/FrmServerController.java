@@ -6,9 +6,13 @@
 package com.orca.view.controller;
 
 import com.orca.communication.StartServer;
+import com.orca.view.FrmConfig;
 import com.orca.view.FrmServer;
+import com.orca.view.coordinator.Coordinator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 /**
  *
@@ -28,33 +32,30 @@ public class FrmServerController {
        formServer.pokreniAddActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent ae) {
-               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+              Coordinator.getInstance().startServer();
            }
        });
        //zaustavi
        formServer.zaustaviAddActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent ae) {
-               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               Coordinator.getInstance().stopServer();
            }
        });
        
        // config
-       
        formServer.configAddActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent ae) {
-               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               Coordinator.getInstance().openConfigForm();
            }
        });
+       
     }
 
     public void openForm() {
         formServer.setLocationRelativeTo(null);
         formServer.setVisible(true);
-        
-        StartServer ss = new StartServer();
-        ss.start();
     }
 
     public FrmServer getFormServer() {

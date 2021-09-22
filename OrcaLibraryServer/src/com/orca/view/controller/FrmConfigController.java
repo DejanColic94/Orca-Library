@@ -6,6 +6,7 @@
 package com.orca.view.controller;
 
 import com.orca.view.FrmConfig;
+import com.orca.view.coordinator.Coordinator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,19 +23,30 @@ public class FrmConfigController {
         addListeners();
     }
 
+    public FrmConfig getFormConfig() {
+        return formConfig;
+    }
+
+    public void setFormConfig(FrmConfig formConfig) {
+        this.formConfig = formConfig;
+    }
+    
+    
+
     private void addListeners() {
         //sacuvaj
         formConfig.sacuvajAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+              
+                Coordinator.getInstance().saveConfigParams();
             }
         });
         //odustani
         formConfig.odustaniAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                formConfig.dispose();
             }
         });
     }

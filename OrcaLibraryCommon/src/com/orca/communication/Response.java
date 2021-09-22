@@ -12,8 +12,10 @@ import java.io.Serializable;
  * @author DCX
  */
 public class Response implements Serializable{
+    
     private Object response;
     private String msg;
+    private int feedback; // -1 or 0
 
     public Response() {
     }
@@ -38,6 +40,15 @@ public class Response implements Serializable{
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    public int getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(int feedback) {
+        this.feedback = feedback;
+    }
+    
     
     
 }

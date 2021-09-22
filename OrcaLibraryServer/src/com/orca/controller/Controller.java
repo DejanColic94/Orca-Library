@@ -5,12 +5,16 @@
  */
 package com.orca.controller;
 
+import com.orca.communication.StartServer;
+import java.io.IOException;
+
 /**
  *
  * @author DCX
  */
 public class Controller {
      private static Controller instance;
+     private static StartServer ss;
     
 
     private Controller() {
@@ -22,5 +26,18 @@ public class Controller {
             instance = new Controller();
         }
         return instance;
+    }
+    
+     public void startServer(int port) {
+                
+        ss = new StartServer(port);
+        ss.start();
+        
+        
+    }
+     
+     public void stopServer() throws IOException {
+        ss.stopServer();
+        
     }
 }

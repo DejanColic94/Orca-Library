@@ -40,7 +40,8 @@ public class FrmLogInController {
     }
 
     public void logIn() {
-      throw new UnsupportedOperationException();
+      JFrame main = new FrmMain();
+      main.setVisible(true);
     }
     
     

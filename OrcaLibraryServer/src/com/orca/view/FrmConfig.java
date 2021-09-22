@@ -6,6 +6,7 @@
 package com.orca.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
 
 /**
  *
@@ -139,10 +140,10 @@ public class FrmConfig extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtPort;
-    private javax.swing.JTextField txtURL;
-    private javax.swing.JTextField txtUsername;
+    public javax.swing.JTextField txtPassword;
+    public javax.swing.JTextField txtPort;
+    public javax.swing.JTextField txtURL;
+    public javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     public void sacuvajAddActionListener(ActionListener actionListener) {

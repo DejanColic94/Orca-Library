@@ -35,8 +35,8 @@ public class SOLogIniRadnika extends GeneralizedSO{
     protected void executeSpecificOperation() throws Exception {
         try {
             List<GeneralizedDomainObject> listaRadnika = DataBaseBroker.getInstance().getAllGeneralizedObjects(radnik);
-        Radnik inputRadnik = (Radnik) radnik;
-        for(GeneralizedDomainObject object : listaRadnika) {
+            Radnik inputRadnik = (Radnik) radnik;
+            for(GeneralizedDomainObject object : listaRadnika) {
             Radnik r = (Radnik) object;
             
             System.out.println("Input user: "+inputRadnik.getUsername()+ " Input password: "+inputRadnik.getPassword());

@@ -12,5 +12,6 @@ import java.io.Serializable;
  * @author DCX
  */
 public class Operations implements Serializable{
+    
     public static final int PLACEHOLDER = 1;
 }

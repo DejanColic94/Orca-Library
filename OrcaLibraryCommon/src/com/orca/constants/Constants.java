@@ -5,10 +5,15 @@
  */
 package com.orca.constants;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DCX
  */
-public class Constants {
+public class Constants implements Serializable{
+    
+     public static final int FAIL = -1;
+     public static final int SUCCESS = 0;
     
 }

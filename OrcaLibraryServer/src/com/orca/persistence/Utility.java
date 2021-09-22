@@ -14,7 +14,7 @@ public class Utility {
     private String username;
     private String password;
     private String dbUrl;
-    private int port;
+    private String port;
 
     private Utility() {
 
@@ -51,11 +51,11 @@ public class Utility {
         this.dbUrl = dbUrl;
     }
 
-    public int getPort() {
+    public String getPort() {
         return port;
     }
 
-    public void setPort(int port) {
+    public void setPort(String port) {
         this.port = port;
     }
 }

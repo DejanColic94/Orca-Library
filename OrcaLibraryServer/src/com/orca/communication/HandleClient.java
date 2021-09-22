@@ -18,6 +18,7 @@ import java.util.logging.Logger;
  * @author DCX
  */
 public class HandleClient extends Thread{
+    
     private Socket socket;
     private boolean end = false;
 
@@ -25,11 +26,18 @@ public class HandleClient extends Thread{
         this.socket = socket;
     }
 
+    public Socket getSocket() {
+        return socket;
+    }
+
+    
+    
     @Override
     public void run() {
-        while (!end) {
+        while (!end && !isInterrupted()) {
             Request request = receiveRequest();
             Response response = new Response();
+            boolean success;
             switch (request.getOperation()) {
                 case Operations.PLACEHOLDER:
 
