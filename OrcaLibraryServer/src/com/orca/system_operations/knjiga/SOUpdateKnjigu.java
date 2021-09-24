@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system_operations.knjiga;
+package com.orca.system_operations.knjiga;
 
 import com.orca.domain.GeneralizedDomainObject;
 import com.orca.persistence.DataBaseBroker;
-import system_operations.GeneralizedSO;
+import com.orca.system_operations.GeneralizedSO;
 
 /**
  *
  * @author DCX
  */
-public class SOCreateKnjigu extends GeneralizedSO{
+public class SOUpdateKnjigu extends GeneralizedSO{
     
     private GeneralizedDomainObject knjiga;
-    private boolean success = false;
+    private boolean  success = false;
 
-    public SOCreateKnjigu(GeneralizedDomainObject knjiga) {
+    public SOUpdateKnjigu(GeneralizedDomainObject knjiga) {
         this.knjiga = knjiga;
     }
 
@@ -30,7 +30,7 @@ public class SOCreateKnjigu extends GeneralizedSO{
 
     @Override
     protected void executeSpecificOperation() throws Exception {
-       success = DataBaseBroker.getInstance().saveGeneralizedObject(knjiga);
+        success = DataBaseBroker.getInstance().updateGeneralizedObject(knjiga);
     }
     
 }

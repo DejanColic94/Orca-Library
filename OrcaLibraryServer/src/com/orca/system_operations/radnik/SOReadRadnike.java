@@ -3,31 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system_operations.knjiga;
+package com.orca.system_operations.radnik;
 
 import com.orca.domain.GeneralizedDomainObject;
-import com.orca.domain.Knjiga;
+import com.orca.domain.Radnik;
 import com.orca.persistence.DataBaseBroker;
+import com.orca.system_operations.GeneralizedSO;
 import java.util.List;
-import system_operations.GeneralizedSO;
 
 /**
  *
  * @author DCX
  */
-public class SOReadKnjige extends GeneralizedSO{
+public class SOReadRadnike extends GeneralizedSO{
     
-    List<GeneralizedDomainObject> knjige;
+     List<GeneralizedDomainObject> radnici;
 
-    public  List<GeneralizedDomainObject> getKnjige() {
-        return knjige;
+    public List<GeneralizedDomainObject> getRadnike() {
+        return radnici;
     }
-    
-    
+     
+     
 
     @Override
     protected void executeSpecificOperation() throws Exception {
-        knjige = DataBaseBroker.getInstance().getAllGeneralizedObjects(new Knjiga());
+        radnici = DataBaseBroker.getInstance().getAllGeneralizedObjects(new Radnik());
     }
     
 }

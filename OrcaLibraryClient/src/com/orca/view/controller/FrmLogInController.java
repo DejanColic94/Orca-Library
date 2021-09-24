@@ -34,6 +34,12 @@ public class FrmLogInController {
        });
     }
 
+    public FrmLogIn getForm() {
+        return form;
+    }
+    
+    
+
     public void openForm() {
        form.setLocationRelativeTo(null);
        form.setVisible(true);

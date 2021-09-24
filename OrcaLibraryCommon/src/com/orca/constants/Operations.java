@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author DCX
  */
 public class Operations implements Serializable{
-    
     public static final int PLACEHOLDER = 1;
+   // public static final int GET_PORT = 1;
+    public static final int LOG_IN = 2;
 }

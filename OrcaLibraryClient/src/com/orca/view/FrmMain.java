@@ -5,14 +5,18 @@
  */
 package com.orca.view;
 
+import com.orca.domain.Radnik;
+import com.orca.session.Session;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.JDialog;
 
 /**
  *
  * @author DCX
  */
-public class FrmMain extends javax.swing.JFrame {
+public class FrmMain extends javax.swing.JFrame implements WindowListener{
 
     /**
      * Creates new form FrmMain
@@ -20,6 +24,7 @@ public class FrmMain extends javax.swing.JFrame {
     public FrmMain() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        
     }
 
     /**
@@ -34,6 +39,8 @@ public class FrmMain extends javax.swing.JFrame {
         btnNoviCitat = new javax.swing.JButton();
         lblIMG = new javax.swing.JLabel();
         btnLogOut = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lblUlogovaniRadnik = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuKnjige = new javax.swing.JMenu();
         miKnjigePregled = new javax.swing.JMenuItem();
@@ -58,6 +65,10 @@ public class FrmMain extends javax.swing.JFrame {
         lblIMG.setIcon(new javax.swing.ImageIcon("C:\\Users\\DCX\\Desktop\\Projekat Orca\\orcaLogo.PNG")); // NOI18N
 
         btnLogOut.setText("Izloguj se");
+
+        jLabel2.setText("Radnik:");
+
+        lblUlogovaniRadnik.setForeground(new java.awt.Color(255, 0, 51));
 
         menuKnjige.setText("Knjige");
 
@@ -111,11 +122,20 @@ public class FrmMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addComponent(btnLogOut)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(lblUlogovaniRadnik, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblUlogovaniRadnik, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addComponent(lblIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(btnNoviCitat)
@@ -136,9 +156,11 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnNoviCitat;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblCitat;
     private javax.swing.JLabel lblIMG;
+    private javax.swing.JLabel lblUlogovaniRadnik;
     private javax.swing.JMenu menuClanovi;
     private javax.swing.JMenu menuKnjige;
     private javax.swing.JMenu menuZaduzenje;
@@ -181,4 +203,42 @@ public class FrmMain extends javax.swing.JFrame {
     public void miZaduzenjeNovoAddActionListener(ActionListener actionListener) {
         miZaduzenjaNovo.addActionListener(actionListener);
     }
+
+    @Override
+    public void windowOpened(WindowEvent we) {
+        Radnik radnik = (Radnik) Session.getInstance().getParams().get("radnik");
+        lblUlogovaniRadnik.setText(radnik.getImePrezime());
+    }
+
+    @Override
+    public void windowClosing(WindowEvent we) {
+       
+    }
+
+    @Override
+    public void windowClosed(WindowEvent we) {
+        
+    }
+
+    @Override
+    public void windowIconified(WindowEvent we) {
+       
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent we) {
+        
+    }
+
+    @Override
+    public void windowActivated(WindowEvent we) {
+       
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent we) {
+        
+    }
+
+    
 }

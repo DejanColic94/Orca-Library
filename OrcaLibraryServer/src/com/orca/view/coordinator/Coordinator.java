@@ -55,7 +55,7 @@ public class Coordinator {
 
     public void saveConfigParams() {
        
-        // port je socket port
+        // port je socket port, ne database port (mySql je 3306)
         String username = configController.getFormConfig().txtUsername.getText();
         String password =  configController.getFormConfig().txtPassword.getText();
         String url = configController.getFormConfig().txtURL.getText();

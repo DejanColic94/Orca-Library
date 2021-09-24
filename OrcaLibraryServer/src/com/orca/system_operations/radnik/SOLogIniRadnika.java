@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system_operations.radnik;
+package com.orca.system_operations.radnik;
 
 import com.orca.domain.GeneralizedDomainObject;
 import com.orca.domain.Radnik;
 import com.orca.persistence.DataBaseBroker;
 import java.util.List;
-import system_operations.GeneralizedSO;
+import com.orca.system_operations.GeneralizedSO;
 
 /**
  *
@@ -45,6 +45,8 @@ public class SOLogIniRadnika extends GeneralizedSO{
             if(r.getUsername().trim().equals(inputRadnik.getUsername().trim()) && r.getPassword().equals(inputRadnik.getPassword())) {
                 this.ulogovaniRadnik = r;
                 return;
+            } else {
+                System.out.println("Pogresna lozinka ili username!");
             }
         }
         } catch (Exception e) {

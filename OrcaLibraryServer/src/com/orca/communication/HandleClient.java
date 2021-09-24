@@ -5,11 +5,18 @@
  */
 package com.orca.communication;
 
+import com.orca.collections.UlogovaniRadnici;
+import com.orca.constants.Constants;
 import com.orca.constants.Operations;
+import com.orca.controller.Controller;
+import com.orca.domain.GeneralizedDomainObject;
+import com.orca.domain.Radnik;
+import com.orca.persistence.Utility;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,15 +42,36 @@ public class HandleClient extends Thread{
     @Override
     public void run() {
         while (!end && !isInterrupted()) {
-            Request request = receiveRequest();
-            Response response = new Response();
-            boolean success;
-            switch (request.getOperation()) {
-                case Operations.PLACEHOLDER:
-
-                    break;
+            try {
+                Request request = receiveRequest();
+                Response response = new Response();
+                
+                switch (request.getOperation()) {
+//                case Operations.GET_PORT:
+//                    int port = Integer.parseInt(Utility.getInstance().getPort());
+//                    response.setResponse(port);
+//                    response.setFeedback(Constants.SUCCESS);
+//                    break;
+                    case Operations.LOG_IN:
+                        
+                        GeneralizedDomainObject ulogovani = Controller.getInstance().logInRadnik((Radnik) request.getParam());
+                        if(ulogovani != null) {
+                            if(!UlogovaniRadnici.getInstance().getListaUlogovanih().contains(ulogovani)) {
+                            UlogovaniRadnici.getInstance().dodaj((Radnik) ulogovani);
+                            response.setResponse(ulogovani);
+                            response.setFeedback(Constants.SUCCESS);
+                        }else {
+                                response.setResponse(ulogovani);
+                                response.setFeedback(Constants.FAIL);
+                            }
+                        } else {
+                            response.setFeedback(Constants.FAIL);
+                        }
+                }
+                sendResponse(response);
+            } catch (Exception ex) {
+                Logger.getLogger(HandleClient.class.getName()).log(Level.SEVERE, null, ex);
             }
-            sendResponse(response);
         }
     }
 

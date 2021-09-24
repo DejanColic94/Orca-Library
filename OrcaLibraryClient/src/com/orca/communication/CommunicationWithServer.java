@@ -19,14 +19,9 @@ import java.util.logging.Logger;
 public class CommunicationWithServer {
     private static CommunicationWithServer instance;
     Socket socket;
+    
 
-    private CommunicationWithServer() {
-        try {
-            socket = new Socket("localhost", 9000);
-        } catch (IOException ex) {
-            Logger.getLogger(CommunicationWithServer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
     public static CommunicationWithServer getInstance() {
         if (instance == null) {
@@ -34,6 +29,16 @@ public class CommunicationWithServer {
         }
         return instance;
     }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
+
+   
+    
+    
+    
+    
 
     public void sendRequest(Request request) {
         try {

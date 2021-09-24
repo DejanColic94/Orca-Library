@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system_operations.clan;
+package com.orca.system_operations.clan;
 
 import com.orca.domain.Clan;
 import com.orca.domain.GeneralizedDomainObject;
 import com.orca.domain.Primerak;
 import com.orca.persistence.DataBaseBroker;
 import java.util.List;
-import system_operations.GeneralizedSO;
+import com.orca.system_operations.GeneralizedSO;
 
 /**
  *

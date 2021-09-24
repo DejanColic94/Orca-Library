@@ -6,7 +6,12 @@
 package com.orca.controller;
 
 import com.orca.communication.StartServer;
+import com.orca.domain.GeneralizedDomainObject;
+import com.orca.domain.Radnik;
+import com.orca.system_operations.radnik.SOLogIniRadnika;
+import com.orca.system_operations.radnik.SOReadRadnike;
 import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -40,4 +45,18 @@ public class Controller {
         ss.stopServer();
         
     }
+
+    public List<GeneralizedDomainObject> getAllRadnike() throws Exception {
+        SOReadRadnike so = new SOReadRadnike();
+        so.executeOperation();
+        return so.getRadnike();
+    }
+
+    public GeneralizedDomainObject logInRadnik(Radnik radnik) throws Exception {
+       SOLogIniRadnika so = new SOLogIniRadnika(radnik);
+       so.executeOperation();
+       return so.getRadnik();
+    }
+    
+    
 }

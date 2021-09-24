@@ -5,8 +5,16 @@
  */
 package com.orca.view.coordinator;
 
+import com.orca.communication.CommunicationWithServer;
+import com.orca.communication.StartClient;
+import com.orca.domain.Radnik;
 import com.orca.view.FrmLogIn;
 import com.orca.view.controller.FrmLogInController;
+import com.orca.controller.Controller;
+import com.orca.session.Session;
+import com.orca.view.FrmMain;
+import com.orca.view.controller.FrmMainController;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,14 +24,15 @@ import java.util.Map;
  */
 public class Coordinator {
     private static Coordinator instance;
-    private final Map<String,Object> params;
+    
     
     // references to form controllers
     private FrmLogInController logInController;
+    private FrmMainController mainController;
     
     private Coordinator() {
         logInController = new FrmLogInController(new FrmLogIn());
-        params = new HashMap<>();
+        mainController = new FrmMainController(new FrmMain());
         
     }
 
@@ -34,11 +43,35 @@ public class Coordinator {
     }
 
     public void logIn() {
-       logInController.logIn();
+      String username = logInController.getForm().txtUsername.getText();
+      String password = String.valueOf(logInController.getForm().txtPassword.getPassword());
+      
+      Radnik radnik = new Radnik();
+      radnik.setUsername(username);
+      radnik.setPassword(password);
+      
+      
+      
+      radnik = Controller.getInstance().logIn(radnik);
+      
+      Session.getInstance().getParams().put("radnik", radnik);
+      
+      System.out.println(Session.getInstance().getParams().get("radnik"));
+      
+      
+      mainController.getFormMain().setVisible(true);
+      logInController.getForm().dispose();
+        
+      
     }
 
     public void openLogIn() {
+       // int port = Controller.getPort();
+       int port = 9000;
+       new StartClient(port).start();
+        
         logInController.openForm();
+       
     }
     
     

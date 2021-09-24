@@ -54,6 +54,14 @@ public class FrmConfig extends javax.swing.JDialog {
 
         jLabel4.setText("Port:");
 
+        txtUsername.setText("root");
+
+        txtPassword.setText("root");
+
+        txtURL.setText("jdbc:mysql://localhost:3306/orca");
+
+        txtPort.setText("9000");
+
         btnSacuvaj.setText("Sacuvaj");
 
         btnOdustani.setText("Odustani");

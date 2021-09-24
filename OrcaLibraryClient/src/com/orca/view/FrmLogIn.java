@@ -100,8 +100,8 @@ public class FrmLogIn extends javax.swing.JFrame {
     private javax.swing.JLabel lblBrojPokusaja;
     private javax.swing.JLabel lblGreskaPassword;
     private javax.swing.JLabel lblGreskaUsername;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    public javax.swing.JPasswordField txtPassword;
+    public javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     public void btnUlogujSeAddListener(ActionListener actionListener) {

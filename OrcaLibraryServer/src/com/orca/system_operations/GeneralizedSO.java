@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system_operations;
+package com.orca.system_operations;
 
 import com.orca.persistence.DataBaseBroker;
 
@@ -20,6 +20,7 @@ public abstract class GeneralizedSO {
             DataBaseBroker.getInstance().commit();
             DataBaseBroker.getInstance().disconnect();
         } catch (Exception e) {
+            e.printStackTrace();
             DataBaseBroker.getInstance().rollback();
             DataBaseBroker.getInstance().disconnect();
         }
