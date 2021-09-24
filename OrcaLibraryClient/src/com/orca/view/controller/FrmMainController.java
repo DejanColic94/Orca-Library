@@ -11,6 +11,7 @@ import com.orca.domain.Radnik;
 import com.orca.quote_generator.Quotes;
 import com.orca.session.Session;
 import com.orca.view.FrmMain;
+import com.orca.view.FrmPregledKnjiga;
 import com.orca.view.coordinator.Coordinator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,7 +68,7 @@ public class FrmMainController {
         formMain.miKnjigePregledAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                Coordinator.getInstance().openPregledKnjiga();
             }
         });
         
@@ -75,7 +76,7 @@ public class FrmMainController {
         formMain.miKnjigeNovoAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                Coordinator.getInstance().openKnjigeNovo();
             }
         });
         
@@ -83,7 +84,7 @@ public class FrmMainController {
         formMain.miClanoviPregledAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                 Coordinator.getInstance().openPregledClanova();
             }
         });
         
@@ -91,7 +92,7 @@ public class FrmMainController {
         formMain.miClanoviNovoAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                 Coordinator.getInstance().openClanoviNovo();
             }
         });
         
@@ -99,7 +100,7 @@ public class FrmMainController {
         formMain.miZaduzenjePregledAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                Coordinator.getInstance().openPregledZaduzenja();
             }
         });
         
@@ -107,7 +108,7 @@ public class FrmMainController {
         formMain.miZaduzenjeNovoAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                 Coordinator.getInstance().openZaduzenjeNovo();
             }
         });
     }
