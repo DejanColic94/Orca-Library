@@ -19,6 +19,7 @@ public class FrmDodajAutora extends javax.swing.JDialog {
     public FrmDodajAutora(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Dodaj Autora");
     }
 
     /**

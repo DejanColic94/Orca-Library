@@ -15,4 +15,5 @@ public class Operations implements Serializable{
     public static final int PLACEHOLDER = 1;
    // public static final int GET_PORT = 1;
     public static final int LOG_IN = 2;
+    public static final int LOG_OUT = 3;
 }

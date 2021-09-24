@@ -21,6 +21,7 @@ public class FrmServer extends javax.swing.JFrame {
     public FrmServer() {
         initComponents();
         btnZaustavi.setEnabled(false);
+        setTitle("Server");
         
     }
 

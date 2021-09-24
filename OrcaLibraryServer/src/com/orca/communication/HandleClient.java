@@ -69,6 +69,18 @@ public class HandleClient extends Thread{
                         } else {
                             response.setFeedback(Constants.FAIL);
                         }
+                        break;
+                        case Operations.LOG_OUT:
+                            
+                            GeneralizedDomainObject ulogovan = (GeneralizedDomainObject) request.getParam();
+                            if(ulogovan != null) {
+                                UlogovaniRadnici.getInstance().obrisi((Radnik) ulogovan);
+                                response.setFeedback(Constants.SUCCESS);
+                            } else{
+                                response.setFeedback(Constants.FAIL);
+                            }
+                            
+                            break;
                         
                 }
                 sendResponse(response);

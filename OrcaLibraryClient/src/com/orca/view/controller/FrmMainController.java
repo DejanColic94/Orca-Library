@@ -6,12 +6,14 @@
 package com.orca.view.controller;
 
 import com.orca.constants.Constants;
+import com.orca.controller.Controller;
 import com.orca.domain.Radnik;
 import com.orca.session.Session;
 import com.orca.view.FrmMain;
 import com.orca.view.coordinator.Coordinator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,7 +43,19 @@ public class FrmMainController {
         formMain.btnLogOutAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               Radnik ulogovani = (Radnik) Session.getInstance().get(Constants.CURRENT_USER);
+               Object[] choice = {"DA","NE"};
+               String msg = "Da li ste sigurni?";
+                int prompt = JOptionPane.showOptionDialog(formMain, msg, "Log Out", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choice, choice[0]);
+                if(prompt == 1) {
+                    return;
+                }
+                
+                Controller.getInstance().logOut(ulogovani);
+                Session.getInstance().getParams().remove(Constants.CURRENT_USER,ulogovani);
+                
+                formMain.setVisible(false);
+                formMain.dispose();
             }
         });
         

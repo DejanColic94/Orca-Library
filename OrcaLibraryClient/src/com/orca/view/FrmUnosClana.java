@@ -20,6 +20,7 @@ public class FrmUnosClana extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Unos Clana");
     }
 
     /**

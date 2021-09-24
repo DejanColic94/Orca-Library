@@ -26,7 +26,7 @@ public class ServerFormRefreshThread extends Thread{
         while(true) {
             try {
                 controller.fillTable();
-                System.out.println("refreshed");
+                //System.out.println("refreshed");
                 sleep(2000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(ServerFormRefreshThread.class.getName()).log(Level.SEVERE, null, ex);

@@ -19,6 +19,7 @@ public class FrmPregledKnjiga extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Pregled Knjiga");
     }
 
     /** This method is called from within the constructor to

@@ -26,6 +26,7 @@ public class FrmMain extends javax.swing.JFrame implements WindowListener{
     public FrmMain() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        setTitle("Pocetna Stranica");
         
        
        

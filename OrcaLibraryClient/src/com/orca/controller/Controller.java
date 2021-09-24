@@ -75,6 +75,29 @@ public class Controller {
             return null;
         }
     }
+
+    public void logOut(Radnik ulogovani) {
+        
+        try {
+            
+            Request request = new Request();
+            request.setOperation(Operations.LOG_OUT);
+            request.setParam(ulogovani);
+            
+            CommunicationWithServer.getInstance().sendRequest(request);
+            Response response = CommunicationWithServer.getInstance().receiveResponse();
+            
+            
+            if(response.getFeedback() == Constants.SUCCESS) {
+                System.out.println("LOG OUT Successful");
+            }
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
     
     
     

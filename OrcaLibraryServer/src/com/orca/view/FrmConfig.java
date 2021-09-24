@@ -21,6 +21,7 @@ public class FrmConfig extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Konfigracija Servera");
     }
 
     /**
@@ -83,13 +84,13 @@ public class FrmConfig extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUsername)
                             .addComponent(txtPassword)
-                            .addComponent(txtURL)
+                            .addComponent(txtURL, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                             .addComponent(txtPort)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 188, Short.MAX_VALUE)
-                        .addComponent(btnOdustani)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSacuvaj)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSacuvaj)))
+                        .addComponent(btnOdustani)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
