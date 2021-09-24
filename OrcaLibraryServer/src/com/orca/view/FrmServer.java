@@ -7,6 +7,7 @@ package com.orca.view;
 
 import com.orca.communication.StartServer;
 import java.awt.event.ActionListener;
+import javax.swing.JTable;
 
 /**
  *
@@ -149,4 +150,10 @@ public class FrmServer extends javax.swing.JFrame {
     public void configAddActionListener(ActionListener actionListener) {
         btnKonfiguracija.addActionListener(actionListener);
     }
+
+    public JTable getTblKorisnici() {
+        return tblKorisnici;
+    }
+    
+    
 }

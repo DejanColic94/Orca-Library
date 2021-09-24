@@ -12,6 +12,7 @@ import com.orca.controller.Controller;
 import com.orca.domain.GeneralizedDomainObject;
 import com.orca.domain.Radnik;
 import com.orca.persistence.Utility;
+import com.orca.view.controller.FrmServerController;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -57,9 +58,10 @@ public class HandleClient extends Thread{
                         GeneralizedDomainObject ulogovani = Controller.getInstance().logInRadnik((Radnik) request.getParam());
                         if(ulogovani != null) {
                             if(!UlogovaniRadnici.getInstance().getListaUlogovanih().contains(ulogovani)) {
-                            UlogovaniRadnici.getInstance().dodaj((Radnik) ulogovani);
-                            response.setResponse(ulogovani);
-                            response.setFeedback(Constants.SUCCESS);
+                                UlogovaniRadnici.getInstance().dodaj((Radnik) ulogovani);
+                                response.setResponse(ulogovani);
+                                response.setFeedback(Constants.SUCCESS);
+                            
                         }else {
                                 response.setResponse(ulogovani);
                                 response.setFeedback(Constants.FAIL);
@@ -67,6 +69,7 @@ public class HandleClient extends Thread{
                         } else {
                             response.setFeedback(Constants.FAIL);
                         }
+                        
                 }
                 sendResponse(response);
             } catch (Exception ex) {
