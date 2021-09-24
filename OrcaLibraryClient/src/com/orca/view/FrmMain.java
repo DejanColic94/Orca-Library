@@ -7,10 +7,12 @@ package com.orca.view;
 
 import com.orca.domain.Radnik;
 import com.orca.session.Session;
+import com.orca.view.controller.FrmMainController;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 /**
  *
@@ -24,6 +26,9 @@ public class FrmMain extends javax.swing.JFrame implements WindowListener{
     public FrmMain() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        
+       
+       
         
     }
 
@@ -132,10 +137,10 @@ public class FrmMain extends javax.swing.JFrame implements WindowListener{
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblUlogovaniRadnik, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                    .addComponent(lblUlogovaniRadnik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(lblIMG, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(btnNoviCitat)
@@ -239,6 +244,12 @@ public class FrmMain extends javax.swing.JFrame implements WindowListener{
     public void windowDeactivated(WindowEvent we) {
         
     }
+
+    public JLabel getLblUlogovaniRadnik() {
+        return lblUlogovaniRadnik;
+    }
+
+    
 
     
 }

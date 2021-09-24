@@ -7,6 +7,7 @@ package com.orca.view.coordinator;
 
 import com.orca.communication.CommunicationWithServer;
 import com.orca.communication.StartClient;
+import com.orca.constants.Constants;
 import com.orca.domain.Radnik;
 import com.orca.view.FrmLogIn;
 import com.orca.view.controller.FrmLogInController;
@@ -17,6 +18,7 @@ import com.orca.view.controller.FrmMainController;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,13 +56,27 @@ public class Coordinator {
       
       radnik = Controller.getInstance().logIn(radnik);
       
-      Session.getInstance().getParams().put("radnik", radnik);
-      
-      System.out.println(Session.getInstance().getParams().get("radnik"));
       
       
-      mainController.getFormMain().setVisible(true);
+      if(radnik != null) {
+          
+           Session.getInstance().getParams().put(Constants.CURRENT_USER, radnik);
+      
+      System.out.println(Session.getInstance().getParams().get(Constants.CURRENT_USER));
+      
+      JOptionPane.showMessageDialog(logInController.getForm(), "Dobrodosli," + radnik.getImePrezime()); 
+      
+      mainController.openForm();
+      
+     
+      
       logInController.getForm().dispose();
+      } else {
+           JOptionPane.showMessageDialog(logInController.getForm(), "Logovanje nije uspesno. Unesite parametre ponovo");
+           return;
+                   
+           
+      }
         
       
     }
@@ -71,8 +87,11 @@ public class Coordinator {
        new StartClient(port).start();
         
         logInController.openForm();
+        
        
     }
+
+   
     
     
     

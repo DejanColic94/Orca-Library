@@ -5,7 +5,11 @@
  */
 package com.orca.view.controller;
 
+import com.orca.constants.Constants;
+import com.orca.domain.Radnik;
+import com.orca.session.Session;
 import com.orca.view.FrmMain;
+import com.orca.view.coordinator.Coordinator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +18,8 @@ import java.awt.event.ActionListener;
  * @author DCX
  */
 public class FrmMainController {
+
+    
     private FrmMain formMain;
 
     public FrmMainController(FrmMain formMain) {
@@ -92,6 +98,11 @@ public class FrmMainController {
         return formMain;
     }
     
+    public void openForm() {
+        Radnik radnik = (Radnik) Session.getInstance().getParams().get(Constants.CURRENT_USER);
+        formMain.getLblUlogovaniRadnik().setText(radnik.getImePrezime());
+        formMain.setVisible(true);
+    }
     
     
     
