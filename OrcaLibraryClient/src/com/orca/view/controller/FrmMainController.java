@@ -8,11 +8,13 @@ package com.orca.view.controller;
 import com.orca.constants.Constants;
 import com.orca.controller.Controller;
 import com.orca.domain.Radnik;
+import com.orca.quote_generator.Quotes;
 import com.orca.session.Session;
 import com.orca.view.FrmMain;
 import com.orca.view.coordinator.Coordinator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +25,8 @@ public class FrmMainController {
 
     
     private FrmMain formMain;
+    
+    
 
     public FrmMainController(FrmMain formMain) {
         this.formMain = formMain;
@@ -35,7 +39,7 @@ public class FrmMainController {
         formMain.btnNoviCitatAddActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                displayQuote();
             }
         });
         
@@ -116,8 +120,19 @@ public class FrmMainController {
         Radnik radnik = (Radnik) Session.getInstance().getParams().get(Constants.CURRENT_USER);
         formMain.getLblUlogovaniRadnik().setText(radnik.getImePrezime());
         formMain.setVisible(true);
+        displayQuote();
     }
     
-    
+    public void displayQuote() {
+        
+        Random random = new Random();
+        Quotes q = new Quotes();
+        
+        String[] quotes = q.getQUOTES();
+        
+        String randomQuote = quotes[random.nextInt(quotes.length)];
+        
+        formMain.getLblCitat().setText(randomQuote);
+    }
     
 }
