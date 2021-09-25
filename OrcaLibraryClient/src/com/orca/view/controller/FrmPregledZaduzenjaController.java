@@ -5,6 +5,7 @@
  */
 package com.orca.view.controller;
 
+import com.orca.models.TableZaduzenjaModel;
 import com.orca.view.FrmPregledZaduzenja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,7 @@ public class FrmPregledZaduzenjaController {
         this.formPregledZaduzenja = formPregledZaduzenja;
         
         addListeners();
+        fillTable();
     }
     
     private void addListeners() {
@@ -38,6 +40,19 @@ public class FrmPregledZaduzenjaController {
                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
            }
        });
+       
+       // pronadji
+       formPregledZaduzenja.btnPronadjiAddActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent ae) {
+               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
+       });
+    }
+
+    private void fillTable() {
+        TableZaduzenjaModel tzm = new TableZaduzenjaModel();
+        formPregledZaduzenja.getTblZaduzenja().setModel(tzm);
     }
     
 }

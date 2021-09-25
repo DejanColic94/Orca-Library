@@ -68,7 +68,7 @@ public class Coordinator {
           
            Session.getInstance().getParams().put(Constants.CURRENT_USER, radnik);
       
-      System.out.println(Session.getInstance().getParams().get(Constants.CURRENT_USER));
+     // System.out.println(Session.getInstance().getParams().get(Constants.CURRENT_USER));
       
       JOptionPane.showMessageDialog(logInController.getForm(), "Dobrodosli," + radnik.getImePrezime()); 
       

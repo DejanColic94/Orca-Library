@@ -65,7 +65,7 @@ public class FrmMain extends javax.swing.JFrame implements WindowListener{
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Citat dana:");
 
-        lblCitat.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblCitat.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCitat.setForeground(new java.awt.Color(102, 102, 102));
 
         btnNoviCitat.setText("Novi citat");

@@ -5,6 +5,7 @@
  */
 package com.orca.view.controller;
 
+import com.orca.models.TableKnjigeModel;
 import com.orca.view.FrmPregledKnjiga;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,7 @@ public class FrmPregledKnjigaController {
         this.formPregledKnjiga = formPregledKnjiga;
         
         addListeners();
+        fillTable();
     }
     
     private void addListeners() {
@@ -38,6 +40,19 @@ public class FrmPregledKnjigaController {
                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
            }
        });
+       
+       // pronadji
+       formPregledKnjiga.btnPronadjiAddActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent ae) {
+               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
+       });
+    }
+
+    private void fillTable() {
+        TableKnjigeModel tkm = new TableKnjigeModel();
+        formPregledKnjiga.getTblKnjige().setModel(tkm);
     }
     
 }

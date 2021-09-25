@@ -61,6 +61,7 @@ public class FrmConfig extends javax.swing.JDialog {
 
         txtURL.setText("jdbc:mysql://localhost:3306/orca");
 
+        txtPort.setEditable(false);
         txtPort.setText("9000");
 
         btnSacuvaj.setText("Sacuvaj");
@@ -87,7 +88,6 @@ public class FrmConfig extends javax.swing.JDialog {
                             .addComponent(txtURL, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                             .addComponent(txtPort)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSacuvaj)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnOdustani)))
