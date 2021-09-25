@@ -213,7 +213,7 @@ public class DataBaseBroker {
     public List<UtilityClanovi> filterClanovi(String filter) {
        
         List<UtilityClanovi> lista = new ArrayList<>();
-        String sql = "SELECT c.ime, c.prezime, c.telefon, c.email, CASE WHEN z.zaduzenjeID IS NOT NULL THEN 1 ELSE 0 END AS zaduzenje FROM clan c JOIN zaduzenje z ON c.clanID = z.clanID WHERE c.ime LIKE '%"+filter+"%' OR c.prezime LIKE '%"+filter+"%' ";
+        String sql = "SELECT c.ime, c.prezime, c.telefon, c.email, CASE WHEN z.zaduzenjeID IS NOT NULL THEN 'Ima' ELSE 'Nema' END AS zaduzenje FROM clan c LEFT JOIN zaduzenje z ON c.clanID = z.clanID WHERE c.ime LIKE '%"+filter+"%' OR c.prezime LIKE '%"+filter+"%' ";
         try {
             Statement s = connection.createStatement();
             ResultSet rs = s.executeQuery(sql);
@@ -223,7 +223,7 @@ public class DataBaseBroker {
                 String prezime = rs.getString("prezime");
                 String telefon = rs.getString("telefon");
                 String email = rs.getString("email");
-                int zaduzenje = rs.getInt("zaduzenje");
+                String zaduzenje = rs.getString("zaduzenje");
                 
                 UtilityClanovi uc = new UtilityClanovi(ime, prezime, telefon, email, zaduzenje);
                 lista.add(uc);

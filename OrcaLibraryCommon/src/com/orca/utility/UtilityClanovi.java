@@ -17,13 +17,13 @@ public class UtilityClanovi implements Serializable{
     private String prezime;
     private String telefon;
     private String email;
-    private int zaduzenje;
+    private String zaduzenje;
    
 
     public UtilityClanovi() {
     }
 
-    public UtilityClanovi(String ime, String prezime, String telefon, String email,int zaduzenje) {
+    public UtilityClanovi(String ime, String prezime, String telefon, String email,String zaduzenje) {
         this.ime = ime;
         this.prezime = prezime;
         this.telefon = telefon;
@@ -64,11 +64,11 @@ public class UtilityClanovi implements Serializable{
         this.telefon = telefon;
     }
 
-    public int getZaduzenje() {
+    public String getZaduzenje() {
         return zaduzenje;
     }
 
-    public void setZaduzenje(int zaduzenje) {
+    public void setZaduzenje(String zaduzenje) {
         this.zaduzenje = zaduzenje;
     }
 
