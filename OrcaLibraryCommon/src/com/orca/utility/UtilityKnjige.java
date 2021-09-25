@@ -5,11 +5,13 @@
  */
 package com.orca.utility;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DCX
  */
-public class UtilityKnjige {
+public class UtilityKnjige implements Serializable{
     
     private String naziv;
     private String autor;

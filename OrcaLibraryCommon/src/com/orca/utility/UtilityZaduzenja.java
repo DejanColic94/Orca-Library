@@ -5,13 +5,14 @@
  */
 package com.orca.utility;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author DCX
  */
-public class UtilityZaduzenja {
+public class UtilityZaduzenja implements Serializable{
     
     private String clan;
     private String Knjiga;

@@ -45,6 +45,10 @@ public class FrmUnosZaduzenjaController {
             }
         });
     }
+
+    public FrmUnosZaduzenja getFormUnosZaduzenja() {
+        return formUnosZaduzenja;
+    }
     
     
     

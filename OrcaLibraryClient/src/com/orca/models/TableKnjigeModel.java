@@ -49,7 +49,17 @@ public class TableKnjigeModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int row, int column) {
-        return null;
+        UtilityKnjige uk = knjige.get(row);
+        
+        switch(column) {
+            case 0: return uk.getNaziv();
+            case 1: return uk.getAutor();
+            case 2: return uk.getIzdavac();
+            case 3: return uk.getZanr();
+            case 4: return uk.getIzdanje();
+            case 5: return uk.getBrojPrimeraka();
+            default: return "/";
+        }
     }
 
     @Override

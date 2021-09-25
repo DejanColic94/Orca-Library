@@ -16,4 +16,8 @@ public class Operations implements Serializable{
    // public static final int GET_PORT = 1;
     public static final int LOG_IN = 2;
     public static final int LOG_OUT = 3;
+    public static final int FILTER_CLANOVI = 4;
+     public static final int FILTER_KNJIGE = 5;
+      public static final int FILTER_ZADUZENJA = 6;
+     
 }

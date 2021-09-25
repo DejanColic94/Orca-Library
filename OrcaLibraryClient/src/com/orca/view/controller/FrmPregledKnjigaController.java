@@ -21,7 +21,7 @@ public class FrmPregledKnjigaController {
         this.formPregledKnjiga = formPregledKnjiga;
         
         addListeners();
-        fillTable();
+       
     }
     
     private void addListeners() {
@@ -50,9 +50,10 @@ public class FrmPregledKnjigaController {
        });
     }
 
-    private void fillTable() {
-        TableKnjigeModel tkm = new TableKnjigeModel();
-        formPregledKnjiga.getTblKnjige().setModel(tkm);
+    public FrmPregledKnjiga getFormPregledKnjiga() {
+        return formPregledKnjiga;
     }
+
+   
     
 }

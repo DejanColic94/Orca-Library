@@ -5,8 +5,13 @@
  */
 package com.orca.view;
 
+import com.orca.controller.Controller;
+import com.orca.models.TableClanoviModel;
+import com.orca.utility.UtilityClanovi;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -22,6 +27,7 @@ public class FrmPregledClanova extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Pregled Clanova");
+        fillTable();
     }
 
     /**
@@ -65,7 +71,7 @@ public class FrmPregledClanova extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -90,17 +96,18 @@ public class FrmPregledClanova extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtFilterClanovi, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnIzmeniClan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnObrisiClan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnPronadji))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(txtFilterClanovi)
+                        .addGap(26, 26, 26)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnObrisiClan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnIzmeniClan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPronadji, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +122,7 @@ public class FrmPregledClanova extends javax.swing.JDialog {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnIzmeniClan)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnObrisiClan)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -143,12 +150,23 @@ public class FrmPregledClanova extends javax.swing.JDialog {
        btnObrisiClan.addActionListener(actionListener);
     }
     
-    public void btnPronadjiAddActionListener(ActionListener actionListener) {
-       btnPronadji.addActionListener(actionListener);
-    }
+   
 
     public JTable getTblClanovi() {
         return tblClanovi;
+    }
+
+    private void fillTable() {
+        TableClanoviModel tcm = new TableClanoviModel();
+        tblClanovi.setModel(tcm);
+    }
+
+    public JTextField getTxtFilterClanovi() {
+        return txtFilterClanovi;
+    }
+
+    public void btnPronadjiAddActionListener(ActionListener actionListener) {
+        btnPronadji.addActionListener(actionListener);
     }
     
     

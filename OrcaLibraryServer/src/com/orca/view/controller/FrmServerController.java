@@ -84,7 +84,7 @@ public class FrmServerController {
         
         for(Radnik r : radnici) {
             ktm.add(r);
-            System.out.println(r);
+            
         }
     }
 }

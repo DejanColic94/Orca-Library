@@ -7,6 +7,7 @@ package com.orca.models;
 
 import com.orca.domain.Clan;
 import com.orca.utility.UtilityClanovi;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -49,7 +50,16 @@ public class TableClanoviModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int row, int column) {
-        return null;
+        UtilityClanovi uc = clanovi.get(row);
+        
+        switch(column) {
+            case 0: return uc.getIme();
+            case 1: return uc.getPrezime();
+            case 2: return uc.getTelefon();
+            case 3: return uc.getEmail();
+            case 4: return uc.getZaduzenje();
+            default: return "/";
+        }
     }
 
     @Override

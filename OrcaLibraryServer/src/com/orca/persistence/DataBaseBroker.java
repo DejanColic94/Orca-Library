@@ -6,11 +6,13 @@
 package com.orca.persistence;
 
 import com.orca.domain.GeneralizedDomainObject;
+import com.orca.utility.UtilityClanovi;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -206,6 +208,31 @@ public class DataBaseBroker {
         }
         
         return false;
+    }
+
+    public List<UtilityClanovi> filterClanovi(String filter) {
+       
+        List<UtilityClanovi> lista = new ArrayList<>();
+        String sql = "SELECT c.ime, c.prezime, c.telefon, c.email, CASE WHEN z.zaduzenjeID IS NOT NULL THEN 1 ELSE 0 END AS zaduzenje FROM clan c JOIN zaduzenje z ON c.clanID = z.clanID WHERE c.ime LIKE '%"+filter+"%' OR c.prezime LIKE '%"+filter+"%' ";
+        try {
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+            while(rs.next()) {
+                
+                String ime = rs.getString("ime");
+                String prezime = rs.getString("prezime");
+                String telefon = rs.getString("telefon");
+                String email = rs.getString("email");
+                int zaduzenje = rs.getInt("zaduzenje");
+                
+                UtilityClanovi uc = new UtilityClanovi(ime, prezime, telefon, email, zaduzenje);
+                lista.add(uc);
+                
+            }
+        } catch (Exception e) {
+        }
+        
+        return lista;
     }
     
 }

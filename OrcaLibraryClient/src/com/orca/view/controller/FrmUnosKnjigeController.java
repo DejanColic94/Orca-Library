@@ -59,6 +59,10 @@ public class FrmUnosKnjigeController {
             }
         });
     }
+
+    public FrmUnosKnjige getFormUnosKnjige() {
+        return formUnosKnjige;
+    }
     
     
     

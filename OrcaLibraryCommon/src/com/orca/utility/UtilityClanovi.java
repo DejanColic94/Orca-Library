@@ -6,23 +6,24 @@
 package com.orca.utility;
 
 import com.orca.domain.Zaduzenje;
+import java.io.Serializable;
 
 /**
  *
  * @author DCX
  */
-public class UtilityClanovi {
+public class UtilityClanovi implements Serializable{
     private String ime;
     private String prezime;
     private String telefon;
     private String email;
-    private String zaduzenje;
+    private int zaduzenje;
    
 
     public UtilityClanovi() {
     }
 
-    public UtilityClanovi(String ime, String prezime, String telefon, String email,String zaduzenje) {
+    public UtilityClanovi(String ime, String prezime, String telefon, String email,int zaduzenje) {
         this.ime = ime;
         this.prezime = prezime;
         this.telefon = telefon;
@@ -63,11 +64,11 @@ public class UtilityClanovi {
         this.telefon = telefon;
     }
 
-    public String getZaduzenje() {
+    public int getZaduzenje() {
         return zaduzenje;
     }
 
-    public void setZaduzenje(String zaduzenje) {
+    public void setZaduzenje(int zaduzenje) {
         this.zaduzenje = zaduzenje;
     }
 

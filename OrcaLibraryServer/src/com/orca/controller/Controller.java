@@ -8,10 +8,14 @@ package com.orca.controller;
 import com.orca.communication.StartServer;
 import com.orca.domain.GeneralizedDomainObject;
 import com.orca.domain.Radnik;
+import com.orca.persistence.DataBaseBroker;
 import com.orca.system_operations.radnik.SOLogIniRadnika;
 import com.orca.system_operations.radnik.SOReadRadnike;
+import com.orca.utility.UtilityClanovi;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +24,7 @@ import java.util.List;
 public class Controller {
      private static Controller instance;
      private static StartServer ss;
+     
     
 
     private Controller() {
@@ -56,6 +61,25 @@ public class Controller {
        SOLogIniRadnika so = new SOLogIniRadnika(radnik);
        so.executeOperation();
        return so.getRadnik();
+    }
+
+    public List<UtilityClanovi> filterClanovi(String filter) {
+        
+         try {
+             
+             DataBaseBroker.getInstance().connect();
+             List<UtilityClanovi> lista = DataBaseBroker.getInstance().filterClanovi(filter);
+             DataBaseBroker.getInstance().commit();
+             DataBaseBroker.getInstance().disconnect();
+             
+             return lista;
+             
+         } catch (Exception ex) {
+             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+             ex.printStackTrace();
+             return null;
+         }
+        
     }
     
     

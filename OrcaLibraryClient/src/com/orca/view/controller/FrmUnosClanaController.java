@@ -39,6 +39,10 @@ public class FrmUnosClanaController {
             }
         });
     }
+
+    public FrmUnosClana getFormUnosClana() {
+        return formUnosClana;
+    }
     
     
     

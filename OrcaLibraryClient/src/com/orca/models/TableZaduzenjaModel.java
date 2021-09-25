@@ -49,7 +49,17 @@ public class TableZaduzenjaModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int row, int column) {
-       return null;
+      UtilityZaduzenja uz = zaduzenja.get(row);
+      
+      switch(column) {
+          case 0: return uz.getClan();
+          case 1: return uz.getKnjiga();
+          case 2: return uz.getRadnikZaduzio();
+          case 3: return uz.getRadnikRazduzio();
+          case 4: return uz.getDatumZaduzenja();
+          case 5: return uz.getDatumRazduzenja();
+          default: return "/";
+      }
     }
 
     @Override

@@ -12,6 +12,8 @@ import com.orca.constants.Constants;
 import com.orca.constants.Operations;
 import com.orca.domain.Radnik;
 import com.orca.exceptions.RequestFailedException;
+import com.orca.utility.UtilityClanovi;
+import java.util.ArrayList;
 
 /**
  *
@@ -96,6 +98,32 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
+        }
+    }
+
+    public ArrayList<UtilityClanovi> filterClanovi(String filter) {
+       
+        try {
+            
+            Request request = new Request();
+            request.setParam(filter);
+            request.setOperation(Operations.FILTER_CLANOVI);
+            
+            CommunicationWithServer.getInstance().sendRequest(request);
+            Response response = CommunicationWithServer.getInstance().receiveResponse();
+            
+            if(response.getFeedback() == Constants.SUCCESS) {
+                return (ArrayList<UtilityClanovi>) response.getResponse();
+            } else{
+                System.out.println("Error in Controller. filterClanovi");
+                return null;
+            }
+            
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
     

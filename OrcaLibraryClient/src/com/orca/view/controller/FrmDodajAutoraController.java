@@ -30,6 +30,10 @@ public class FrmDodajAutoraController {
            }
        });
     }
+
+    public FrmDodajAutora getFormDodajAutora() {
+        return formDodajAutora;
+    }
     
     
     

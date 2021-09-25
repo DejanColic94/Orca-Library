@@ -11,8 +11,7 @@ import com.orca.constants.Operations;
 import com.orca.controller.Controller;
 import com.orca.domain.GeneralizedDomainObject;
 import com.orca.domain.Radnik;
-import com.orca.persistence.Utility;
-import com.orca.view.controller.FrmServerController;
+import com.orca.utility.UtilityClanovi;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -81,6 +80,13 @@ public class HandleClient extends Thread{
                             }
                             
                             break;
+                        case Operations.FILTER_CLANOVI:
+                            
+                            String filter = (String) request.getParam();
+                            List<UtilityClanovi> lista = Controller.getInstance().filterClanovi(filter);
+                            response.setResponse(lista);
+                            response.setFeedback(Constants.SUCCESS);
+                            
                         
                 }
                 sendResponse(response);

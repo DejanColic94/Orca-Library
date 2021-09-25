@@ -21,7 +21,7 @@ public class FrmPregledZaduzenjaController {
         this.formPregledZaduzenja = formPregledZaduzenja;
         
         addListeners();
-        fillTable();
+        
     }
     
     private void addListeners() {
@@ -50,9 +50,10 @@ public class FrmPregledZaduzenjaController {
        });
     }
 
-    private void fillTable() {
-        TableZaduzenjaModel tzm = new TableZaduzenjaModel();
-        formPregledZaduzenja.getTblZaduzenja().setModel(tzm);
+    public FrmPregledZaduzenja getFormPregledZaduzenja() {
+        return formPregledZaduzenja;
     }
+
+   
     
 }
